@@ -1,7 +1,9 @@
-import { Button } from "@material-tailwind/react";
+import FetchData from "./components/FetchData";
 
 export function App() {
   return (
-    <Button>Test</Button>
+    <div className="text-white">
+      <FetchData/>
+    </div>
   );
 }
