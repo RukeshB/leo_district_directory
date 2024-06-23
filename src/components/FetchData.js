@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import CustomSpinner from './CustomSpinner';
+import React, { useState, useEffect } from "react";
+import CustomSpinner from "./CustomSpinner";
+import { ClubList } from "./ClubList";
 
 const FetchData = () => {
   const [data, setData] = useState(null);
@@ -9,9 +10,11 @@ const FetchData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzjw_0LIFgvlrq-kzly82PmtOtWAtYbMhgDeZ824ZsGEDOji_mUTbby2sqvQ_TWWrREMQ/exec');
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbzjw_0LIFgvlrq-kzly82PmtOtWAtYbMhgDeZ824ZsGEDOji_mUTbby2sqvQ_TWWrREMQ/exec"
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const result = await response.json();
         setData(result);
@@ -26,7 +29,7 @@ const FetchData = () => {
   }, []);
 
   if (loading) {
-    return <CustomSpinner/>;
+    return <CustomSpinner />;
   }
 
   if (error) {
@@ -35,7 +38,7 @@ const FetchData = () => {
 
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <ClubList data={data} />
     </div>
   );
 };
