@@ -14,7 +14,7 @@ export function ClubList({ data }) {
   return (
     <div>
       <div className="text-center m-4">
-        <h1 className="text-6xl">Leo District Council 325 G</h1>
+        <h1 className="text-2xl md:text-6xl">Leo District Council 325 G</h1>
       </div>
       <Card className="w-full bg-gray-900">
         <List>

@@ -4,7 +4,7 @@ import leo_logo from "../assets/logos/internaltional_leo_logo.png";
 
 const UserProfileCard = (props) => {
   return (
-    <Card className="w-80 md:w-96 h-full px-2 py-2 text-center rounded-lg lg:mt-0">
+    <Card className="w-80 md:w-96 px-2 py-2 text-center rounded-lg lg:mt-0">
       <CardBody className="space-y-4 lg:space-y-6">
         <Avatar
           src={leo_logo}
