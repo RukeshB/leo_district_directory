@@ -37,7 +37,7 @@ const FetchData = () => {
   }
 
   return (
-    <div>
+    <div className="opacity-90 m-4">
       <ClubList data={data} />
     </div>
   );
