@@ -3,9 +3,9 @@ import {
   Collapse,
   ListItem,
   Card,
-  Typography,
   CardBody,
 } from "@material-tailwind/react";
+import UserProfileCard from "./UserProfileCard";
 
 export default function BodContainer({
   club,
@@ -33,14 +33,19 @@ export default function BodContainer({
           isSelected ? "bg-gray-800" : "bg-gray-900"
         }`}
       >
-        {club}
+        Leo Club of {club}
       </ListItem>
       <Collapse open={isOpen}>
         <Card className="m-4 mx-auto w-full bg-gray-800 text-white">
           <CardBody>
-            <Typography>
-              <pre>{JSON.stringify(filteredData, null, 2)}</pre>
-            </Typography>
+              {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
+              <div className="flex gap-3 md:flex-row flex-col">
+                {
+                  filteredData.map((element, index) => (
+                    <UserProfileCard member={element} key={index}/>
+                  ))
+                }
+              </div>
           </CardBody>
         </Card>
       </Collapse>
