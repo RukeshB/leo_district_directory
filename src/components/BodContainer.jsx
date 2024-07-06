@@ -6,6 +6,7 @@ import {
   CardBody,
 } from "@material-tailwind/react";
 import UserProfileCard from "./UserProfileCard";
+import ProfileCard from "./ProfileCard";
 
 export default function BodContainer({
   club,
@@ -42,7 +43,8 @@ export default function BodContainer({
               <div className="flex gap-3 md:flex-row flex-col">
                 {
                   filteredData.map((element, index) => (
-                    <UserProfileCard member={element} key={index}/>
+                    // <UserProfileCard member={element} key={index}/>
+                    <ProfileCard key={index}/>
                   ))
                 }
               </div>
