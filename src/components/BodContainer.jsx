@@ -1,10 +1,5 @@
 import React, { useRef } from "react";
-import {
-  Collapse,
-  ListItem,
-  Card,
-  CardBody,
-} from "@material-tailwind/react";
+import { Collapse, ListItem, Card, CardBody } from "@material-tailwind/react";
 import UserProfileCard from "./UserProfileCard";
 import ProfileCard from "./ProfileCard";
 
@@ -39,15 +34,13 @@ export default function BodContainer({
       <Collapse open={isOpen}>
         <Card className="m-4 mx-auto w-full bg-gray-800 text-white">
           <CardBody>
-              {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
-              <div className="flex gap-3 md:flex-row flex-col">
-                {
-                  filteredData.map((element, index) => (
-                    // <UserProfileCard member={element} key={index}/>
-                    <ProfileCard key={index}/>
-                  ))
-                }
-              </div>
+            {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              {filteredData.map((element, index) => (
+                // <UserProfileCard member={element} key={index}/>
+                <ProfileCard key={index} member={element}/>
+              ))}
+            </div>
           </CardBody>
         </Card>
       </Collapse>
