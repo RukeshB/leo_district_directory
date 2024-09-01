@@ -32,12 +32,10 @@ export default function BodContainer({
         Leo Club of {club}
       </ListItem>
       <Collapse open={isOpen}>
-        <Card className="m-4 mx-auto w-full bg-gray-800 text-white">
+        <Card className="m-4 mx-auto w-full bg-gray-800 ">
           <CardBody>
-            {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
             <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {filteredData.map((element, index) => (
-                // <UserProfileCard member={element} key={index}/>
                 <ProfileCard key={index} member={element}/>
               ))}
             </div>

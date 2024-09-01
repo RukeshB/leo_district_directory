@@ -1,8 +1,6 @@
 import React from 'react';
-import { Card, CardBody, Typography } from '@material-tailwind/react';
 
-const ProfileCard = (props) => {
-  
+const ProfileCard = ({ member }) => {
   const getInitials = (name) => {
     if (!name) return '';
     const names = name.split(' ');
@@ -11,36 +9,23 @@ const ProfileCard = (props) => {
   };
 
   return (
-    <Card className="w-full mx-auto bg-white text-black shadow-md">
-      <CardBody className="flex items-center space-x-4 p-6">
-        <div className="bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center">
-          <span className="text-2xl font-bold">{getInitials(props.member.full_name)}</span>
+    <div className="bg-white rounded-lg shadow-md p-6 max-w-md">
+      <div className="flex items-center space-x-4">
+        <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+          <span className="text-xl font-bold text-white">{getInitials(member.full_name)}</span>
         </div>
-        <div>
-          <Typography variant="h5" className="font-semibold">
-            {props.member.full_name.toUpperCase()}
-          </Typography>
-          <Typography variant="lead" className="text-gray-800">
-            {props.member.poisiton}
-          </Typography>
-          <Typography>
-          <span className="font-bold">Membership Id: </span>{props.member.membership_id}
-        </Typography>
-        {/* <Typography>
-          <span className="font-bold">Address: </span>{props.member.address}
-        </Typography> */}
-        <Typography>
-          <span className="font-bold">Email: </span>{props.member.email}
-        </Typography>
-        {/* <Typography>
-          <span className="font-bold">Phone: </span>{props.member.phone}
-        </Typography> */}
-        <Typography>
-          <span className="font-bold">Blood Group: </span>{props.member.blood_group}
-        </Typography>
+        <div className="flex-grow">
+          <h2 className="text-lg font-bold text-gray-800">{member.full_name.toUpperCase()}</h2>
+          <p className="text-sm text-gray-600">{member.position}</p>
         </div>
-      </CardBody>
-    </Card>
+      </div>
+      <div className="mt-4 space-y-2 text-sm">
+        <p><span className="font-semibold">Membership Id:</span> {member.membership_id}</p>
+        <p><span className="font-semibold">Address:</span> {member.address}</p>
+        <p><span className="font-semibold">Email:</span> {member.email}</p>
+        <p><span className="font-semibold">Blood Group:</span> {member.blood_group}</p>
+      </div>
+    </div>
   );
 };
 
