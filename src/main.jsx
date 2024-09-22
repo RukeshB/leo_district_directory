@@ -1,10 +1,14 @@
-import { render } from 'preact'
-import { App } from './app.jsx'
-import './index.css'
-import { ThemeProvider } from '@material-tailwind/react'
+import { render } from "preact";
+import { BrowserRouter } from "react-router-dom";
+import { App } from "./app.jsx";
+import "./index.css";
+import { ThemeProvider } from "@material-tailwind/react";
 
 render(
+  <BrowserRouter>
     <ThemeProvider>
-        <App />
+      <App />
     </ThemeProvider>
-    , document.getElementById('app'))
+  </BrowserRouter>,
+  document.getElementById("app")
+);

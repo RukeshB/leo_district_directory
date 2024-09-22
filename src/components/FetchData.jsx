@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CustomSpinner from "./CustomSpinner";
-import { ClubList } from "./ClubList";
+import { RegionList } from "./RegionList";
 
 const FetchData = () => {
   const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ const FetchData = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbzjw_0LIFgvlrq-kzly82PmtOtWAtYbMhgDeZ824ZsGEDOji_mUTbby2sqvQ_TWWrREMQ/exec"
+          "https://script.google.com/macros/s/AKfycby3Qq2Ite4cLp_ficcZUVtt9qBVXGkzL6hclnqSwlNW8RwN5v1KRMo3CXZtaR6aWuGZcw/exec?sheetName=club_details"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -37,8 +37,8 @@ const FetchData = () => {
   }
 
   return (
-    <div className="opacity-90 m-4">
-      <ClubList data={data} />
+    <div className="opacity-90">
+      <RegionList data={data} />
     </div>
   );
 };
