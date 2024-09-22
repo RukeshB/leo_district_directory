@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "./DataProvider";
+import { BackButton } from "./BackButton";
+import { User, Mail, Phone, Droplet, IdCard, MapPin } from "lucide-react";
 
 export const ClubDetails = () => {
   const { clubName } = useParams();
@@ -14,42 +16,77 @@ export const ClubDetails = () => {
     (member) => member.club_name === decodeURIComponent(clubName)
   );
 
+  const getRandomColor = () => {
+    const colors = [
+      "bg-blue-500",
+      "bg-green-500",
+      "bg-yellow-500",
+      "bg-red-500",
+      "bg-purple-500",
+      "bg-pink-500",
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
+  const getDicebearAvatar = (name) => {
+    const encodedName = encodeURIComponent(name);
+    return `https://api.dicebear.com/9.x/thumbs/svg?seed=${encodedName}`;
+  };
+
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
-      <h2 className="text-3xl font-bold mb-6 text-center text-white">
-        {decodeURIComponent(clubName)} Members
-      </h2>
+    <div className="max-w-6xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
+      <div className="flex items-center justify-between mb-10">
+        <BackButton />
+        <h2 className="text-4xl font-bold text-white flex-grow text-center">
+          {decodeURIComponent(clubName)} Members
+        </h2>
+        <div className="w-16"></div>
+      </div>
       {members.length === 0 ? (
-        <p className="text-center text-gray-300">
+        <p className="text-center text-gray-300 text-xl">
           No members found for this club.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {members.map((member, index) => (
-            <div key={index} className="bg-gray-700 p-4 rounded-lg">
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {member.full_name}
-              </h3>
-              <p className="text-gray-300">
-                <strong>Position:</strong> {member.poisiton}
-              </p>
-              <p className="text-gray-300">
-                <strong>Email:</strong> {member.email}
-              </p>
-              <p className="text-gray-300">
-                <strong>Phone:</strong> {member.phone}
-              </p>
-              <p className="text-gray-300">
-                <strong>Blood Group:</strong> {member.blood_group}
-              </p>
-              <p className="text-gray-300">
-                <strong>Membership ID:</strong> {member.membership_id}
-              </p>
-              <p className="text-gray-300">
-                <strong>Address:</strong> {member.address}
-              </p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {members.map((member, index) => {
+            return (
+              <div
+                key={index}
+                className="bg-gray-700 rounded-lg shadow-lg transform transition duration-300 hover:scale-105"
+              >
+                <div className="px-6 py-4">
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={getDicebearAvatar(member.full_name)}
+                      alt={`Avatar for ${member.full_name}`}
+                      className="w-16 h-16 rounded-full mr-4"
+                    />
+                    <h3 className="text-2xl font-semibold text-white">
+                      {member.full_name}
+                    </h3>
+                  </div>
+                  <p className="text-gray-300 flex items-center mb-2">
+                    <User className="mr-2" size={18} /> {member.poisiton}
+                  </p>
+                  <p className="text-gray-300 flex items-center mb-2">
+                    <Mail className="mr-2" size={18} /> {member.email}
+                  </p>
+                  <p className="text-gray-300 flex items-center mb-2">
+                    <Phone className="mr-2" size={18} /> {member.phone}
+                  </p>
+                  <p className="text-gray-300 flex items-center mb-2">
+                    <Droplet className="mr-2" size={18} /> {member.blood_group}
+                  </p>
+                  <p className="text-gray-300 flex items-center mb-2">
+                    <IdCard className="mr-2" size={18} /> {member.membership_id}
+                  </p>
+                  <p className="text-gray-300 flex items-center">
+                    <MapPin className="mr-2" size={18} /> {member.address}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

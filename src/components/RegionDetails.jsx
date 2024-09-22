@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useData } from "./DataProvider";
+import { BackButton } from "./BackButton";
 
 export const RegionDetails = () => {
   const { regionNumber } = useParams();
@@ -22,9 +23,13 @@ export const RegionDetails = () => {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
-      <h2 className="text-3xl font-bold mb-6 text-center text-white">
-        Region {regionNumber.toUpperCase()} Clubs
-      </h2>
+      <div className="flex items-center justify-between mb-6">
+        <BackButton />
+        <h2 className="text-3xl font-bold text-white flex-grow text-center">
+          Region {regionNumber.toUpperCase()} Clubs
+        </h2>
+        <div className="w-16"></div>
+      </div>
       {clubs.length === 0 ? (
         <p className="text-center text-gray-300">
           No clubs found for this region.
