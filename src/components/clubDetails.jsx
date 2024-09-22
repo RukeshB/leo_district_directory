@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "./DataProvider";
 import { BackButton } from "./BackButton";
-import { User, Mail, Phone, Droplet, IdCard, MapPin } from "lucide-react";
+import { Mail, Phone, Droplet, IdCard, MapPin } from "lucide-react";
 
 export const ClubDetails = () => {
   const { clubName } = useParams();
@@ -37,8 +37,8 @@ export const ClubDetails = () => {
     <div className="max-w-6xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
       <div className="flex items-center justify-between mb-10">
         <BackButton />
-        <h2 className="text-4xl font-bold text-white flex-grow text-center">
-          {decodeURIComponent(clubName)} Members
+        <h2 className="text-lg md:text-3xl font-bold text-white flex-grow text-center">
+          Leo Club of {decodeURIComponent(clubName)}
         </h2>
         <div className="w-16"></div>
       </div>
@@ -61,13 +61,11 @@ export const ClubDetails = () => {
                       alt={`Avatar for ${member.full_name}`}
                       className="w-16 h-16 rounded-full mr-4"
                     />
-                    <h3 className="text-2xl font-semibold text-white">
-                      {member.full_name}
-                    </h3>
+                    <div>
+                      <h3 className="text-lg md:text-2xl font-semibold text-white"> {member.full_name} </h3>
+                      <h3 className="text-base text-gray-300"> {member.poisiton} </h3>
+                    </div>
                   </div>
-                  <p className="text-gray-300 flex items-center mb-2">
-                    <User className="mr-2" size={18} /> {member.poisiton}
-                  </p>
                   <p className="text-gray-300 flex items-center mb-2">
                     <Mail className="mr-2" size={18} /> {member.email}
                   </p>
@@ -80,9 +78,9 @@ export const ClubDetails = () => {
                   <p className="text-gray-300 flex items-center mb-2">
                     <IdCard className="mr-2" size={18} /> {member.membership_id}
                   </p>
-                  <p className="text-gray-300 flex items-center">
+                  {/* <p className="text-gray-300 flex items-center">
                     <MapPin className="mr-2" size={18} /> {member.address}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             );

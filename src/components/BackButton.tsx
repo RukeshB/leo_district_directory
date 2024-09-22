@@ -12,7 +12,7 @@ export const BackButton = () => {
   return (
     <button
       onClick={handleBack}
-      className="bg-white text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-100 transition-colors"
+      className="bg-white text-blue-600  px-4 py-1 md:px-6 md:py-2 rounded-lg hover:bg-blue-100 transition-colors"
     >
       Back
     </button>

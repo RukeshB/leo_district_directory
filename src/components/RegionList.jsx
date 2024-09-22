@@ -19,7 +19,7 @@ export const RegionList = () => {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
-      <h2 className="text-3xl font-bold mb-6 text-center text-white">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">
         Select a Region
       </h2>
       {uniqueRegions.length === 0 ? (

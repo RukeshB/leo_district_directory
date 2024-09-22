@@ -25,7 +25,7 @@ export const RegionDetails = () => {
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
       <div className="flex items-center justify-between mb-6">
         <BackButton />
-        <h2 className="text-3xl font-bold text-white flex-grow text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-white flex-grow text-center">
           Region {regionNumber.toUpperCase()} Clubs
         </h2>
         <div className="w-16"></div>
@@ -43,7 +43,7 @@ export const RegionDetails = () => {
               className="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-lg shadow-lg overflow-hidden cursor-pointer"
             >
               <div className="px-6 py-4">
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-base md:text-xl font-semibold text-white">
                   {club.club_name}
                 </h3>
                 <p className="text-blue-200 text-sm">Click to view members</p>
