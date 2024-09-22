@@ -1,42 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import { useData } from "./DataProvider";
 
 export const ClubDetails = () => {
   const { clubName } = useParams();
-  const [members, setMembers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchMembers = async () => {
-      try {
-        const response = await fetch(
-          "https://script.googleusercontent.com/macros/echo?user_content_key=lJQD8ion2k-qs6fynEdA8zQwom1kAxSAW5srTxBpzz8E94GTgdGROzjAAkt0EoXkYET5yNGS6CoDzxlsPKMhOaKr_bwRbw5AOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa0eoWE3HqFdUdcSM8B3pSECv02xugclnZScSAjZ-6leRLLUUlpYwhh4QMQr-RgqBCsTVA31GsbVKgO_HrhnL41IaseSPvt6H4_ekoa_Y_UXNgzBIrM_fen716LbejRbPYw&lib=MnVhB9O8MzIxKUgXOpDLlNsT0oKwtHH8b"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        const clubMembers = data.filter(
-          (member) => member.club_name === decodeURIComponent(clubName)
-        );
-        setMembers(clubMembers);
-        setLoading(false);
-      } catch (error) {
-        setError("Failed to fetch member data");
-        setLoading(false);
-      }
-    };
-
-    fetchMembers();
-  }, [clubName]);
+  const { membersData, loading, error } = useData();
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
   if (error)
     return <div className="text-center mt-10 text-red-500">{error}</div>;
 
-  console.log({ clubName });
-  console.log({ members });
+  const members = membersData.filter(
+    (member) => member.club_name === decodeURIComponent(clubName)
+  );
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-xl">
