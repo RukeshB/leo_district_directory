@@ -9,8 +9,7 @@ export const RegionDetails = () => {
   const { regionsData, loading, error } = useData();
 
   const handleClubClick = (clubName) => {
-    const club = clubName.split("of ")[1];
-    navigate(`/region/${regionNumber}/${encodeURIComponent(club)}`);
+    navigate(`/region/${regionNumber}/${encodeURIComponent(clubName)}`);
   };
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;

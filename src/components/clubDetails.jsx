@@ -13,7 +13,7 @@ export const ClubDetails = () => {
     return <div className="text-center mt-10 text-red-500">{error}</div>;
 
   const members = membersData.filter(
-    (member) => member.club_name === decodeURIComponent(clubName)
+    (member) => member.club_name.toLowerCase() === decodeURIComponent(clubName).toLowerCase()
   );
 
   const getRandomColor = () => {
@@ -38,7 +38,7 @@ export const ClubDetails = () => {
       <div className="flex items-center justify-between mb-10">
         <BackButton />
         <h2 className="text-lg md:text-3xl font-bold text-white flex-grow text-center">
-          Leo Club of {decodeURIComponent(clubName)}
+          {decodeURIComponent(clubName)}
         </h2>
         <div className="w-16"></div>
       </div>
@@ -62,25 +62,22 @@ export const ClubDetails = () => {
                       className="w-16 h-16 rounded-full mr-4"
                     />
                     <div>
-                      <h3 className="text-lg md:text-2xl font-semibold text-white"> {member.full_name} </h3>
+                      <h3 className="text-lg md:text-xl font-semibold text-white"> Leo {member.full_name} </h3>
                       <h3 className="text-base text-gray-300"> {member.poisiton} </h3>
                     </div>
                   </div>
                   <p className="text-gray-300 flex items-center mb-2">
-                    <Mail className="mr-2" size={18} /> {member.email}
+                    <Mail className="mr-2" size={18} /> {member.email ? member.email : "-"}
                   </p>
                   <p className="text-gray-300 flex items-center mb-2">
-                    <Phone className="mr-2" size={18} /> {member.phone}
+                    <Phone className="mr-2" size={18} /> {member.phone ? member.phone : "-"}
                   </p>
                   <p className="text-gray-300 flex items-center mb-2">
-                    <Droplet className="mr-2" size={18} /> {member.blood_group}
+                    <Droplet className="mr-2" size={18} /> {member.blood_group ? member.blood_group : "-"}
                   </p>
                   <p className="text-gray-300 flex items-center mb-2">
-                    <IdCard className="mr-2" size={18} /> {member.membership_id}
+                    <IdCard className="mr-2" size={18} /> {member.membership_id ? member.membership_id : "-"}
                   </p>
-                  {/* <p className="text-gray-300 flex items-center">
-                    <MapPin className="mr-2" size={18} /> {member.address}
-                  </p> */}
                 </div>
               </div>
             );

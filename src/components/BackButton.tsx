@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -10,11 +11,6 @@ export const BackButton = () => {
   };
 
   return (
-    <button
-      onClick={handleBack}
-      className="bg-white text-blue-600  px-4 py-1 md:px-6 md:py-2 rounded-lg hover:bg-blue-100 transition-colors"
-    >
-      Back
-    </button>
+    <ArrowLeft onClick={handleBack} className="text-white hover:text-blue-600 cursor-pointer"/>
   );
 };
