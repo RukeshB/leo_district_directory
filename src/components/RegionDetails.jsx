@@ -40,13 +40,13 @@ export const RegionDetails = () => {
             <div
               key={index}
               onClick={() => handleClubClick(club.club_name)}
-              className="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              className="bg-gray-700 hover:bg-gray-600 hover:scale-105 transition duration-300 rounded-lg shadow-lg overflow-hidden cursor-pointer"
             >
               <div className="px-6 py-4">
                 <h3 className="text-base md:text-xl font-semibold text-white">
                   {club.club_name}
                 </h3>
-                <p className="text-blue-200 text-sm">Click to view members</p>
+                <p className="text-sm">Click to view members</p>
               </div>
             </div>
           ))}

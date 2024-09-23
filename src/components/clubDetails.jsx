@@ -52,7 +52,7 @@ export const ClubDetails = () => {
             return (
               <div
                 key={index}
-                className="bg-gray-700 rounded-lg shadow-lg transform transition duration-300 hover:scale-105"
+                className="bg-gray-700 hover:bg-gray-600 hover:scale-105 rounded-lg shadow-lg transform transition duration-300"
               >
                 <div className="px-6 py-4">
                   <div className="flex items-center mb-4">

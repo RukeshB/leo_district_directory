@@ -30,13 +30,13 @@ export const RegionList = () => {
             <div
               key={region}
               onClick={() => handleRegionClick(region)}
-              className="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-lg shadow-lg overflow-hidden cursor-pointer"
+              className="bg-gray-700 hover:bg-gray-600 hover:scale-105 transition duration-300 rounded-lg shadow-lg overflow-hidden cursor-pointer"
             >
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2 text-white">
                   {region}
                 </div>
-                <p className="text-blue-200 text-sm">Click to view details</p>
+                <p className="text-sm">Click to view details</p>
               </div>
             </div>
           ))}
